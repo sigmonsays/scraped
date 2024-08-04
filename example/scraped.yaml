@@ -1,0 +1,22 @@
+
+scrape_interval: 300
+script_dir: /tmp/scraped
+
+publish_url: http://somewhere.lan:5959/store
+
+plugins:
+  - type: exec
+    id: geo
+    params:
+      shell: true
+      json: true
+      script: |
+        curl -s http://ip-api.com/json
+
+  - type: exec
+    id: locks
+    params:
+      shell: true
+      json: true
+      script: |
+        lslocks -J
