@@ -45,7 +45,7 @@ func main() {
 	control <- 1 // reload config
 	control <- 2 // trigger plugins
 
-	reloadTicker := time.NewTicker(time.Duration(60) * time.Second)
+	reloadTicker := time.NewTicker(time.Duration(cfg.ReloadInterval) * time.Second)
 	defer reloadTicker.Stop()
 
 	scrapeTicker := time.NewTicker(time.Duration(cfg.ScrapeInterval) * time.Second)

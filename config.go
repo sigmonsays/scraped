@@ -10,6 +10,7 @@ import (
 
 // main configuration structure
 type AppConfig struct {
+	ReloadInterval int       `yaml:"reload_interval"`
 	ScrapeInterval int       `yaml:"scrape_interval"`
 	HTTP           *HTTP     `yaml:"http"`
 	ScriptDir      string    `yaml:"script_dir"`
@@ -71,6 +72,8 @@ func (me *AppConfig) PrintConfig() {
 
 func GetDefaultConfig() *AppConfig {
 	cfg := &AppConfig{}
+	cfg.ReloadInterval = 3600
+	cfg.ScrapeInterval = 120
 	cfg.HTTP = &HTTP{}
 	cfg.HTTP.Addr = ":5959"
 	return cfg

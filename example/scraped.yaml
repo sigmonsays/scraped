@@ -1,5 +1,6 @@
 
 scrape_interval: 300
+reload_interval: 3600
 script_dir: /tmp/scraped
 
 publish_url: http://somewhere.lan:5959/store
